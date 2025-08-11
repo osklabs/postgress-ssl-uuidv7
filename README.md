@@ -13,7 +13,7 @@ docker pull ghcr.io/osklabs/postgres-ssl-uuidv7:17-1.6.0
 For development, the pre-built image with only `pg_uuidv7` can be used:
 
 ```bash
-docker pull ghcr.io/fboulnois/pg_uuidv7:1.6.0
+docker pull ghcr.io/osklabs/postgres-uuidv7:17-1.6.0
 ```
 
 In postgres, initialize the plugin:
@@ -34,3 +34,17 @@ SELECT uuid_generate_v7();
 ```
 
 For additional usages, refer to the [original repository of the plugin](https://github.com/fboulnois/pg_uuidv7).
+
+## Building a new image:
+
+To build and push a new image:
+
+```
+cd ssl-uuidv7
+docker build -t ghcr.io/osklabs/postgres-ssl-uuidv7:17-1.6.0 .
+docker push ghcr.io/osklabs/postgres-ssl-uuidv7:17-1.6.0
+
+cd uuidv7
+docker build -t ghcr.io/osklabs/postgres-uuidv7:17-1.6.0 .
+docker push ghcr.io/osklabs/postgres-uuidv7:17-1.6.0
+```
